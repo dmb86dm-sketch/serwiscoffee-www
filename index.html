@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta name="google-site-verification" content="hfpJcVZdtH1hFWUWGus6QypvHYwIfLdpdQkIk0cYIPw" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SerwisCoffee | Serwis ekspresów do kawy</title>
+<meta name="description" content="Serwis ekspresów do kawy — diagnostyka, czyszczenie, odkamienianie i naprawa. Czechowice-Dziedzice i okolice.">
+<meta name="theme-color" content="#050505">
+<style>
+:root{
+ --bg:#050505;--bg2:#0b0b0b;--panel:#0e0e0e;--gold:#d6aa3e;--gold2:#f1d06a;
+ --gold3:#8f6919;--text:#f8f4e8;--muted:#aaa394;--line:#3a2d13;--shadow:#000000aa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+.top{border-bottom:1px solid #2b2110;background:#030303}
+nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:14px}
+.cup-logo{width:70px;height:70px;flex:none}
+.brand-name{font-size:28px;font-weight:900;letter-spacing:.2px}
+.brand-name span{color:var(--gold)}
+.brand-sub{font-size:11px;letter-spacing:2.2px;color:var(--gold);font-weight:800;margin-top:3px}
+.navlinks{display:flex;gap:24px;font-weight:700;color:#d8d2c4}
+.navlinks a:hover{color:var(--gold2)}
+.call-btn,.gold-btn,.outline-btn{
+ display:inline-flex;align-items:center;justify-content:center;gap:8px;
+ border-radius:10px;padding:13px 18px;font-weight:900;transition:.2s ease
+}
+.call-btn,.outline-btn{border:1px solid var(--gold3);color:var(--gold2);background:#080808}
+.gold-btn{background:linear-gradient(135deg,var(--gold2),#b78320);color:#080808;box-shadow:0 10px 30px #d6aa3e22}
+.call-btn:hover,.outline-btn:hover,.gold-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+
+.hero{background:
+ radial-gradient(circle at 80% 35%,#7e5c151a 0 14%,transparent 38%),
+ linear-gradient(135deg,#030303 0%,#060606 48%,#0c0904 100%);
+ border-bottom:1px solid #251b0c
+}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;min-height:600px;padding:56px 0}
+.eyebrow{color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:2px}
+.hero h1{font-size:clamp(48px,6.2vw,78px);line-height:.98;margin:16px 0 18px;letter-spacing:-2px}
+.hero h1 .gold{color:var(--gold)}
+.hero p{max-width:650px;color:#d5d0c4;font-size:19px;line-height:1.65}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px}
+.trust-item{display:flex;align-items:center;gap:10px;color:#ded6c5}
+.trust-icon{width:42px;height:42px;border:1px solid #6f531e;border-radius:50%;display:grid;place-items:center;color:var(--gold2)}
+.machine-wrap{position:relative;display:flex;justify-content:center}
+.machine-wrap:before{content:"";position:absolute;width:74%;height:74%;background:#b8872322;filter:blur(70px);border-radius:50%;top:12%;right:5%}
+.machine{position:relative;width:min(100%,610px);filter:drop-shadow(0 30px 42px #000)}
+.packages-section{padding:28px 0 70px;background:#050505}
+.section-title{text-align:center;margin:18px 0 28px}
+.section-title h2{margin:0;color:var(--gold2);font-size:34px;text-transform:uppercase;letter-spacing:.8px}
+.section-title:after{content:"";display:block;width:85px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px auto 0}
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pkg{
+ background:linear-gradient(145deg,#111,#080808);border:1px solid #5a4219;border-radius:18px;
+ padding:28px;box-shadow:0 16px 40px var(--shadow);display:flex;flex-direction:column;min-height:480px;position:relative
+}
+.pkg.featured{border-color:var(--gold2);box-shadow:0 0 0 1px #d6aa3e33,0 18px 48px #000,0 0 38px #d6aa3e1a}
+.ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,var(--gold2),#a87920);color:#0a0a0a;font-size:11px;font-weight:900;white-space:nowrap}
+.pkg h3{text-align:center;font-size:28px;color:var(--gold2);margin:4px 0 3px}
+.pkg .desc{text-align:center;color:#b8b0a1}
+.price{text-align:center;font-size:48px;font-weight:900;color:var(--gold);margin:14px 0 16px}
+.price small{font-size:18px}
+.pkg ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
+.pkg li{position:relative;padding:8px 0 8px 29px;color:#d5cec0;border-bottom:1px solid #17130c}
+.pkg li:before{content:"✓";position:absolute;left:0;top:7px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold2),#a6781f);color:#080808;font-size:12px;font-weight:900}
+.pkg li.strong{color:var(--gold2);font-weight:900}
+.pkg .outline-btn,.pkg .gold-btn{width:100%}
+.benefits{border:1px solid #4b3816;border-radius:18px;background:#0b0b0b;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:20px}
+.benefit{padding:21px;display:flex;align-items:center;gap:12px;border-right:1px solid #2c220f}
+.benefit:last-child{border-right:0}
+.benefit .ico{font-size:28px;color:var(--gold)}
+.benefit b{display:block;color:var(--gold2);font-size:13px}.benefit span{font-size:13px;color:#c1b8a7}
+.how{padding:68px 0;background:#080808;border-top:1px solid #241b0b}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.step{background:#0d0d0d;border:1px solid #493616;border-radius:15px;padding:24px 16px;text-align:center;position:relative}
+.step .n{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;margin:-42px auto 14px;background:#080808;color:var(--gold2);font-weight:900}
+.step .ico{font-size:34px;color:var(--gold);margin:8px 0}
+.step h3{color:var(--gold2);font-size:15px;margin:10px 0}.step p{color:#aaa394;font-size:13px;line-height:1.55}
+.contact{padding:68px 0;background:#050505}
+.contactbox{border:1px solid #4e3915;border-radius:18px;background:linear-gradient(135deg,#0d0d0d,#090909);padding:28px;display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center}
+.contactbox h3{color:var(--gold2);margin:0 0 6px;font-size:24px}.contactbox p{margin:0;color:#b7af9f}
+footer{border-top:1px solid #2c210e;padding:24px 0 34px;color:#817968;background:#030303;font-size:13px}
+.footerline{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.mobilebar{display:none}
+@media(max-width:950px){
+ .navlinks{display:none}.hero-inner{grid-template-columns:1fr}.machine-wrap{order:-1}.machine{max-width:470px}
+ .packages{
+   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+   padding:0 34px 16px 2px;gap:14px;scroll-padding-left:2px;
+   scrollbar-width:thin;scrollbar-color:#d6aa3e #111
+ }
+ .packages::-webkit-scrollbar{height:7px}
+ .packages::-webkit-scrollbar-track{background:#111;border-radius:10px}
+ .packages::-webkit-scrollbar-thumb{background:#d6aa3e;border-radius:10px}
+ .pkg{min-width:68vw;max-width:68vw;scroll-snap-align:start}
+ .benefits{grid-template-columns:1fr 1fr}.benefit:nth-child(2){border-right:0}.benefit{border-bottom:1px solid #2c220f}
+ .steps{grid-template-columns:1fr 1fr}.step .n{margin:-38px auto 12px}.contactbox{grid-template-columns:1fr}
+ .mobilebar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;bottom:0;left:0;right:0;z-index:20;background:#050505;border-top:1px solid #4a3715;padding:9px 10px}
+ body{padding-bottom:68px}
+}
+@media(max-width:600px){
+ nav{min-height:76px}.cup-logo{width:56px;height:56px}.brand-name{font-size:22px}.brand-sub{font-size:9px}.call-btn{display:none}
+ .hero-inner{padding:28px 0 44px}.hero h1{font-size:46px}.hero p{font-size:17px}.machine{max-width:340px}
+ .trust{gap:14px}.packages-section{padding-top:18px}.section-title h2{font-size:27px}
+ .packages{padding-right:48px;gap:12px}
+ .pkg{min-width:72vw;max-width:72vw;padding:22px;min-height:430px}
+ .pkg h3{font-size:25px}.price{font-size:42px}.pkg li{font-size:15px;padding-left:26px}
+ .benefits{grid-template-columns:1fr}.benefit{border-right:0}.steps{grid-template-columns:1fr}.step{margin-top:18px}
+}
+
+.swipe-hint{display:none;text-align:center;color:#d6aa3e;font-size:13px;font-weight:800;margin:-10px 0 16px;letter-spacing:.3px}
+@media(max-width:950px){.swipe-hint{display:block}}
+
+.wa-float{position:fixed;right:18px;bottom:90px;z-index:40;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;box-shadow:0 14px 34px #0009,0 0 0 3px #25D36622;font-size:30px;font-weight:900;transition:.2s ease}.wa-float:hover{transform:translateY(-3px) scale(1.03)}.wa-float .tip{position:absolute;right:72px;white-space:nowrap;background:#0b0b0b;color:#f1d06a;border:1px solid #5b4318;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:800;opacity:0;pointer-events:none;transition:.2s ease}.wa-float:hover .tip{opacity:1}.wa-box{margin-top:24px;border:1px solid #4e3915;border-radius:18px;background:linear-gradient(145deg,#0d0d0d,#070707);padding:24px}.wa-box h3{color:#f1d06a;margin-top:0}.wa-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.wa-box input,.wa-box select,.wa-box textarea{width:100%;padding:12px 13px;border-radius:9px;border:1px solid #4b3917;background:#080808;color:#f8f4e8;font:inherit}.wa-box textarea{min-height:110px;resize:vertical}.wa-send{width:100%;margin-top:12px;border:0;border-radius:10px;padding:14px 18px;background:#25D366;color:#071a0e;font-weight:900;font-size:16px;cursor:pointer}.wa-send:hover{filter:brightness(1.05)}@media(max-width:700px){.wa-float{right:14px;bottom:82px;width:56px;height:56px;font-size:27px}.wa-float .tip{display:none}.wa-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <nav>
+   <a href="#start" class="brand">
+    <svg class="cup-logo" viewBox="0 0 100 100" aria-label="SerwisCoffee">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#f1d06a"/><stop offset="1" stop-color="#9b6d19"/></linearGradient></defs>
+      <path d="M29 45h43v14c0 16-10 26-22 26S29 75 29 59V45Z" fill="none" stroke="url(#g)" stroke-width="5"/>
+      <path d="M72 50h6c11 0 14 16 3 22-3 2-6 2-10 2" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M27 86c15 7 38 7 54 0" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M43 39c-9-11 8-15 0-27M55 39c-9-11 8-15 0-27M66 39c-8-10 7-14 0-23" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <div><div class="brand-name"><span>Serwis</span>Coffee</div><div class="brand-sub">SERWIS EKSPRESÓW DO KAWY</div></div>
+   </a>
+   <div class="navlinks"><a href="#start">Strona główna</a><a href="#pakiety">Pakiety</a><a href="#jak">Jak działamy?</a><a href="#kontakt">Kontakt</a></div>
+   <a class="call-btn" href="tel:+48732728587">☎ 732 728 587</a>
+  </nav>
+ </div>
+</header>
+
+<main id="start">
+<section class="hero">
+ <div class="wrap hero-inner">
+  <div>
+   <div class="eyebrow">PROFESJONALNY SERWIS EKSPRESÓW</div>
+   <h1><span class="gold">EKSPRES DO KAWY</span><br>ZNÓW JAK NOWY</h1>
+   <p>Diagnostyka, czyszczenie, odkamienianie i naprawa automatycznych ekspresów do kawy. Czechowice-Dziedzice, Pszczyna, Bielsko-Biała i okolice.</p>
+   <div class="trust">
+    <div class="trust-item"><div class="trust-icon">✓</div><div><b>Jasna wycena</b><br><small>przed naprawą</small></div></div>
+    <div class="trust-item"><div class="trust-icon">⚙</div><div><b>Profesjonalny</b><br><small>serwis</small></div></div>
+    <div class="trust-item"><div class="trust-icon">☕</div><div><b>Test końcowy</b><br><small>po naprawie</small></div></div>
+   </div>
+   <div class="hero-actions"><a class="gold-btn" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zg%C5%82osi%C4%87%20ekspres%20do%20naprawy." target="_blank">☕ ZGŁOŚ NAPRAWĘ</a><a class="outline-btn" href="tel:+48732728587">☎ 732 728 587</a></div>
+  </div>
+  <div class="machine-wrap"><img class="machine" src="machine.jpg" alt="Automatyczny ekspres do kawy"></div>
+ </div>
+</section>
+
+<section class="packages-section" id="pakiety">
+ <div class="wrap">
+  <div class="section-title"><h2>Nasze pakiety serwisowe</h2></div><div class="swipe-hint">← Przesuń palcem, aby zobaczyć kolejne pakiety →</div>
+  <div class="packages">
+   <article class="pkg">
+    <h3>BASIC</h3><div class="desc">Podstawowy serwis</div><div class="price">200 <small>zł</small></div>
+    <ul><li>odkamienianie układu</li><li>czyszczenie zaparzacza</li><li>czyszczenie układu kawowego</li><li>czyszczenie wylewki i tacki</li><li>test parzenia</li></ul>
+    <a class="outline-btn" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20um%C3%B3wi%C4%87%20pakiet%20BASIC%20za%20200%20z%C5%82.%20Prosz%C4%99%20o%20kontakt." target="_blank">WYBIERAM</a>
+   </article>
+   <article class="pkg featured">
+    <div class="ribbon">NAJCZĘŚCIEJ WYBIERANY</div>
+    <h3>STANDARD</h3><div class="desc">Kompleksowy serwis</div><div class="price">250 <small>zł</small></div>
+    <ul><li>odkamienianie układu</li><li>czyszczenie zaparzacza</li><li>czyszczenie układu kawowego</li><li>czyszczenie układu mlecznego</li><li>test spieniania i parzenia</li><li>ocena stanu technicznego</li></ul>
+    <a class="gold-btn" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20um%C3%B3wi%C4%87%20pakiet%20STANDARD%20za%20250%20z%C5%82.%20Prosz%C4%99%20o%20kontakt." target="_blank">WYBIERAM</a>
+   </article>
+   <article class="pkg">
+    <h3>PREMIUM</h3><div class="desc">Serwis Premium</div><div class="price">350 <small>zł</small></div>
+    <ul><li>pełna diagnoza</li><li>układ kawowy i mleczny</li><li>odkamienianie układu</li><li>konserwacja zaparzacza</li><li>smarowanie prowadnic</li><li>regulacja / test młynka</li><li class="strong">wymiana uszczelnienia</li><li>test końcowy</li></ul>
+    <a class="outline-btn" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20um%C3%B3wi%C4%87%20pakiet%20PREMIUM%20za%20350%20z%C5%82.%20Prosz%C4%99%20o%20kontakt." target="_blank">WYBIERAM</a>
+   </article>
+  </div>
+
+  <div class="benefits">
+   <div class="benefit"><div class="ico">🔎</div><div><b>DIAGNOSTYKA</b><span>konkretna ocena usterki</span></div></div>
+   <div class="benefit"><div class="ico">🛡</div><div><b>JASNE ZASADY</b><span>wycena przed rozszerzeniem naprawy</span></div></div>
+   <div class="benefit"><div class="ico">⏱</div><div><b>SPRAWNY SERWIS</b><span>bez zbędnego przeciągania</span></div></div>
+   <div class="benefit"><div class="ico">☕</div><div><b>TEST KOŃCOWY</b><span>sprawdzenie po naprawie</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="how" id="jak">
+ <div class="wrap">
+  <div class="section-title"><h2>Jak działamy?</h2></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div class="ico">☎</div><h3>KONTAKT</h3><p>Zadzwoń lub napisz. Opisz markę, model i problem.</p></div>
+   <div class="step"><div class="n">2</div><div class="ico">☕</div><h3>PRZYJĘCIE EKSPRESU</h3><p>Dostarcz ekspres do serwisu.</p></div>
+   <div class="step"><div class="n">3</div><div class="ico">🛠</div><h3>DIAGNOZA I NAPRAWA</h3><p>Sprawdzamy urządzenie i wykonujemy uzgodniony serwis.</p></div>
+   <div class="step"><div class="n">4</div><div class="ico">✓</div><h3>TESTY JAKOŚCI</h3><p>Sprawdzamy szczelność, działanie i jakość parzenia.</p></div>
+   <div class="step"><div class="n">5</div><div class="ico">☕</div><h3>GOTOWE</h3><p>Odbierasz sprawny i przygotowany ekspres.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="kontakt">
+ <div class="wrap">
+  <div class="contactbox">
+   <div><h3>Masz pytania? Skontaktuj się</h3><p>SerwisCoffee • Czechowice-Dziedzice i okolice</p></div>
+   <a class="gold-btn" href="tel:+48732728587">☎ 732 728 587</a>
+   <a class="outline-btn" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zg%C5%82osi%C4%87%20ekspres%20do%20serwisu%20SerwisCoffee." target="_blank">◉ NAPISZ NA WHATSAPP</a>
+  </div>
+<div class="wa-box">
+ <h3>💬 Szybkie zgłoszenie przez WhatsApp Business</h3>
+ <div class="wa-grid">
+  <input id="waName" placeholder="Imię i nazwisko">
+  <input id="waPhone" placeholder="Telefon kontaktowy">
+  <input id="waModel" placeholder="Marka i model ekspresu">
+  <select id="waService">
+   <option>Diagnoza / naprawa</option>
+   <option>BASIC – 200 zł</option>
+   <option>STANDARD – 250 zł</option>
+   <option>PREMIUM – 350 zł</option>
+   <option>Czyszczenie / odkamienianie</option>
+  </select>
+ </div>
+ <textarea id="waDesc" placeholder="Opisz objawy, np. woda trafia do tacki, kawa nie leci, nie spienia mleka..."></textarea>
+ <button class="wa-send" onclick="sendWA()">Wyślij zgłoszenie do SerwisCoffee</button>
+</div>
+
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap footerline"><span>© SerwisCoffee — serwis ekspresów do kawy</span><span>43-502 Czechowice-Dziedzice • ul. Potoczna 32b</span><span>serwiscoffee@gmail.com</span></div></footer>
+<div class="mobilebar"><a class="gold-btn" href="tel:+48732728587">☎ Zadzwoń</a><a class="outline-btn" href="https://wa.me/48732728587" target="_blank">WhatsApp</a></div>
+
+<a class="wa-float" href="https://wa.me/48732728587?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20SerwisCoffee." target="_blank" aria-label="WhatsApp Business"><span class="tip">Napisz na WhatsApp Business</span>◉</a>
+
+<script>
+function sendWA(){
+ const n=document.getElementById('waName').value.trim();
+ const t=document.getElementById('waPhone').value.trim();
+ const m=document.getElementById('waModel').value.trim();
+ const s=document.getElementById('waService').value;
+ const d=document.getElementById('waDesc').value.trim();
+ if(!n || !t){alert('Wpisz imię i numer telefonu.');return;}
+ const msg=`Dzień dobry, zgłoszenie ze strony SerwisCoffee
+
+Klient: ${n}
+Telefon: ${t}
+Ekspres: ${m || '-'}
+Usługa: ${s}
+Opis problemu: ${d || '-'}
+
+Proszę o kontakt w sprawie serwisu.`;
+ window.open('https://wa.me/48732728587?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
